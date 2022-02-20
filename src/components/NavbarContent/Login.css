@@ -1,0 +1,90 @@
+.navDropdownItem:hover{
+    background-color: #ff9b23;
+}
+.loginHeader{
+    background-color: #ff9b23;
+}
+.loginTitle{
+    color: antiquewhite;
+}
+.login-submit,.login-cancel{
+    box-shadow: none !important;
+    border-radius: 0px;
+    padding: 7px 25px;
+    font-weight: 700;
+    text-align: center;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+.login-submit,.login-cancel:hover{
+    background-color: #ff9b23 !important;
+    border: none;
+    color: white;
+}
+.login-submit:hover,.login-cancel{
+    border: 1px solid #ff9b23;
+    border-color: #ff9b23 !important;
+    background-color: #ffffff !important;
+    color: #ff9b23;
+}
+input[type=email],[type=password],[type=tel],[type=text]{
+    box-shadow: none !important;
+    border: 0;
+    margin: 3px;
+    border-bottom: 1px solid #E5E4E2 !important;
+}
+.selectId{
+    box-shadow: none !important;
+    border: 0;
+    margin: 3px;
+    border-bottom: 1px solid #E5E4E2 !important;
+}
+.registerHeader{
+    background-color: #C04000;
+    border-top: 1px solid #C04000;
+}
+.registerTitle{
+    color: antiquewhite;
+}
+.register-submit,.register-cancel{
+    box-shadow: none !important;
+    border-radius: 0px;
+    padding: 7px 25px;
+    font-weight: 700;
+    text-align: center;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+.register-submit,.register-cancel:hover{
+    border-top: 1px solid #C04000 !important;
+    background-color: #C04000 !important;
+    border: none;
+    color: white;
+}
+.register-submit:hover,.register-cancel{
+    border: 1px solid #C04000;
+    border-color: #C04000 !important;
+    background-color: #ffffff !important;
+    color: #C04000;
+}
+.top-heading{
+    font-size: 18px;
+    font-weight: bold;
+}
+h6{
+    font-size: 14px;
+}
+.btn-get-started{
+    border-radius: 0px !important;
+    padding: 10px 25px;
+    font-weight: 20px;
+    font-weight: 700;
+    box-shadow: none !important;
+    color: #FFFFFF;
+}
+.btn-get-started:hover{
+    background-color: #FFFFFF;
+    color: #ff9b23;
+    border: 2px solid #ff9b23;
+    box-shadow: none !important;
+}
