@@ -1,0 +1,50 @@
+.availableRidesContent{
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.availableRidesContent{
+    width: calc(100% - 16rem);
+    margin-top: 70px;
+    margin-left: 16rem;
+    transition: all 0.4s;
+} 
+
+.availableRidesContent.active {
+    width: 100%;
+    margin: 40px 0 0 0;
+}
+.rideTitle{
+  color:#6D19FC;
+  font-size: 25px;
+  font-weight: 700;
+}
+.joinButton{
+      background-color: white;
+      width: 85px;
+      color:#6D19FC;
+      border: 1px solid #6D19FC;
+      border-radius: 15px;
+      box-shadow: none !important;
+      padding: 5px 10px;
+      font-weight: 700;
+      text-align: center;
+      font-size: 12px;
+      text-transform: uppercase;
+}
+.joinButton:hover{
+      background-color: #6D19FC;
+      color: white;
+      box-shadow: none !important;
+}
+  @media (max-width: 768px) {
+    
+     .availableRidesContent{
+      width: 100%;
+      margin: 70px 0 0 0;
+    }
+    .availableRidesContent.active {
+      margin-left: 16rem;
+      width: calc(100% - 16rem);
+    }
+  }

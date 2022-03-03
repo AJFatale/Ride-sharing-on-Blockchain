@@ -3,6 +3,9 @@ import {BrowserRouter as Router,Route,Routes} from 'react-router-dom';
 import Navigation from './components/NavbarContent/Navigation';
 import Home from './components/Home';
 import SearchCabs from './components/SearchCabs';
+import Dashboard from './components/UserDashboard/Dashboard';
+import CreateRide from './components/UserDashboard/CreateRide';
+import AvailableRides from './components/UserDashboard/AvailableRides';
 
 function App() {
   return (
@@ -12,6 +15,9 @@ function App() {
           <Routes>
             <Route exact path='/' element={<Home />} />
             <Route exact path='/SearchCabs' element={<SearchCabs />} />
+            <Route exact path='/userDashboard' element={<Dashboard />} />
+            <Route exact path='/create_ride' element={<CreateRide />} />
+            <Route exact path='/available_rides' element={<AvailableRides />} />
           </Routes>
       </Router>
     </div>
