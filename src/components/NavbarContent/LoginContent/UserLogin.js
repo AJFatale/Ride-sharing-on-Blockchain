@@ -24,7 +24,7 @@ function DriverRiderLogin(props){
                     Mobile No.
                     </Form.Label>
                     <Col sm="10">
-                    <Form.Control type="tel" placeholder="Eg. +12345678" required/>
+                    <Form.Control type="number" placeholder="Eg. +12345678" required/>
                     </Col>
                 </Form.Group>
 

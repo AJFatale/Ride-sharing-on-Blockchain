@@ -33,7 +33,7 @@ function AdminRegister(props){
                     Mobile No.
                     </Form.Label>
                     <Col sm="10">
-                    <Form.Control type="tel" placeholder="+12345678" />
+                    <Form.Control type="number" placeholder="+12345678" />
                     </Col>
                 </Form.Group>
                 <Form.Group as={Row} className="mb-3">

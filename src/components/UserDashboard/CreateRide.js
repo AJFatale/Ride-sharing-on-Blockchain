@@ -2,7 +2,7 @@ import React,{ useState } from 'react';
 import DatePicker from "react-datepicker";
 import TimePicker from 'react-time-picker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { Container, Form, Col ,Row} from 'react-bootstrap';
+import { Container, Form, Col ,Row,Button} from 'react-bootstrap';
 import DashNav from './DashNav';
 import Sidebar from './Sidebar';
 import './CreateRide.css';
@@ -13,8 +13,8 @@ function CreateRide(){
 
     const showSidebar = () => setSidebar(!sidebar);
 
-    const [selectedDate, setSelectedDate] = useState(null);
-    const [selectedTime, setSelectedTime] = useState(null);
+    const [selectedDate, setSelectedDate] = useState(new Date());
+    const [selectedTime, setSelectedTime] = useState();
 
     return(
         <div>
@@ -31,7 +31,7 @@ function CreateRide(){
                             margin:"50px auto"
                             }} 
                             className="rideForm">
-                             {/* className="align-items-center justify-content-center p-4"> */}
+                
                             <b style={{color:"#6D19FC",fontWeight:"700",fontSize:"23px"}}>Create a Ride to your destination in town</b>
                                 
                                 <Form.Group className="mt-4" controlId="formBasicDate">
@@ -78,7 +78,7 @@ function CreateRide(){
                                             <Form.Label>Pick Up: </Form.Label>
                                         </Col>
                                         <Col md={9} xs={12}>
-                                            <Form.Control type="text" placeholder="Enter Pick up location" className="text-center" />
+                                            <Form.Control type="text" placeholder="Enter Pick up location" className="rideInput" />
                                         </Col>
                                     </Row>
                                 </Form.Group>
@@ -88,7 +88,7 @@ function CreateRide(){
                                             <Form.Label>Destination:</Form.Label>
                                         </Col>
                                         <Col md={9} xs={12}>
-                                            <Form.Control type="text" placeholder="Enter destination for ride estimate" className="text-center" />
+                                            <Form.Control type="text" placeholder="Enter destination for ride estimate" className="rideInput" />
                                         </Col>
                                     </Row>
                                 </Form.Group>
@@ -98,7 +98,7 @@ function CreateRide(){
                                             <Form.Label>Expected Fair:</Form.Label>
                                         </Col>
                                         <Col md={9} xs={12}>
-                                            <Form.Control type="number" placeholder="Enter Fair Price" className="text-center" />
+                                            <Form.Control type="number" placeholder="Enter Fair Price" className="rideInput" />
                                         </Col>
                                     </Row>
                                 </Form.Group>
@@ -108,7 +108,7 @@ function CreateRide(){
                                             <Form.Label>No of Seats:</Form.Label>
                                         </Col>
                                         <Col md={9} xs={12}>
-                                            <Form.Select aria-label="Default select example">
+                                            <Form.Select aria-label="Default select example" className="rideInput">
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
@@ -117,9 +117,9 @@ function CreateRide(){
                                         </Col>
                                     </Row>
                                 </Form.Group>
-                                <button type="submit" className="rideButton">
+                                <Button type="submit" className="rideButton">
                                     Create Ride
-                                </button>
+                                </Button>
                         </Form> 
                     </Col>
                 </Container>

@@ -1,7 +1,5 @@
 import React from "react";
-import {Modal}from "react-bootstrap";
-import Button from 'react-bootstrap/Button';
-import {Form, Col, Row} from 'react-bootstrap';
+import {Modal,Form, Col, Row,Button} from 'react-bootstrap';
 import '../../NavbarContent/Login.css';
 
 
@@ -15,7 +13,7 @@ function DriverRegister(props){
         >
         <Modal.Header className="registerHeader" closeButton>
             <Modal.Title className="registerTitle" id="contained-modal-title-vcenter">
-            Driver Registration
+            User Registration
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -33,7 +31,7 @@ function DriverRegister(props){
                     Mobile No.
                     </Form.Label>
                     <Col sm="10">
-                    <Form.Control type="tel" placeholder="+12345678" />
+                    <Form.Control type="number" placeholder="+12345678" />
                     </Col>
                 </Form.Group>
                 <Form.Group as={Row} className="mb-3">
@@ -49,7 +47,7 @@ function DriverRegister(props){
                     Aadhar No (UID)
                     </Form.Label>
                     <Col sm="10">
-                    <Form.Control type="tel" placeholder="Enter Aadhar (UID) no." />
+                    <Form.Control type="number" placeholder="Enter Aadhar (UID) no." />
                     </Col>
                 </Form.Group>
                 <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">

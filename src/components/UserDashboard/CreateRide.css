@@ -15,9 +15,13 @@
   margin: 40px 0 0 0;
 }
 
-input[type="text"],[type="tel"],[type="number"],select{
-box-shadow: none !important;
-max-width: 280px;
+.rideInput{
+  box-shadow: none !important;
+  border: 0 !important;
+  margin: 3px;
+  border-bottom: 1px solid #E5E4E2 !important;
+  box-shadow: none !important;
+  max-width: 280px;
 }
 
 .form-label{
@@ -32,7 +36,8 @@ max-width: 220px;
 .selectDate,.react-time-picker__wrapper{
 max-width: 280px;
 box-shadow: none !important;
-border: 1px solid #CBC8C0;
+border: none;
+border-bottom: 1px solid #CBC8C0;
 font-weight: normal;
 color: #7B7D7D;
 }
@@ -44,6 +49,8 @@ border:  1px solid #6D19FC;
 background-color: #6D19FC;
 color: white;
 font-size: 16px;
+border-radius: 0px;
+box-shadow: none !important;
 }
 .rideButton:hover{
 border:  1px solid #6D19FC;

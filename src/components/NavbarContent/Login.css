@@ -1,90 +1,97 @@
-.navDropdownItem:hover{
-    background-color: #ff9b23;
-}
 .loginHeader{
-    background-color: #ff9b23;
+    background-color: #6D19FC;
+    border-top: 1px solid #6D19FC;
+}
+#collasible-nav-dropdown{
+    color: #6D19FC !important;
 }
 .loginTitle{
     color: antiquewhite;
 }
 .login-submit,.login-cancel{
     box-shadow: none !important;
-    border-radius: 0px;
+    border-radius: 0px !important;
+    border: 1px solid #6D19FC !important;
     padding: 7px 25px;
-    font-weight: 700;
+    font-weight: 700 !important;
     text-align: center;
-    font-size: 12px;
+    font-size: 12px !important;
     text-transform: uppercase;
 }
-.login-submit,.login-cancel:hover{
-    background-color: #ff9b23 !important;
-    border: none;
+.login-submit{
+    background-color: #6D19FC !important;
+    border: 1px solid #6D19FC !important;
     color: white;
 }
-.login-submit:hover,.login-cancel{
-    border: 1px solid #ff9b23;
-    border-color: #ff9b23 !important;
+.login-cancel{
+    border: 1px solid #6D19FC !important;
     background-color: #ffffff !important;
-    color: #ff9b23;
+    color: #6D19FC !important;
 }
-input[type=email],[type=password],[type=tel],[type=text]{
+input[type="email"],[type="password"],[type="number"],[type="text"]{
     box-shadow: none !important;
-    border: 0;
+    border: 0 !important;
     margin: 3px;
     border-bottom: 1px solid #E5E4E2 !important;
 }
 .selectId{
     box-shadow: none !important;
-    border: 0;
+    border: 0 !important;
     margin: 3px;
     border-bottom: 1px solid #E5E4E2 !important;
 }
 .registerHeader{
-    background-color: #C04000;
-    border-top: 1px solid #C04000;
+    background-color: #4B0082;
+    border-top: none;
 }
 .registerTitle{
     color: antiquewhite;
 }
 .register-submit,.register-cancel{
     box-shadow: none !important;
-    border-radius: 0px;
+    border-radius: 0px !important;
+    border: 1px solid #4B0082 !important;
     padding: 7px 25px;
-    font-weight: 700;
+    font-weight: 700 !important;
     text-align: center;
-    font-size: 12px;
+    font-size: 12px !important;
     text-transform: uppercase;
 }
-.register-submit,.register-cancel:hover{
-    border-top: 1px solid #C04000 !important;
-    background-color: #C04000 !important;
-    border: none;
+.register-submit{
+    background-color: #4B0082!important;
     color: white;
 }
-.register-submit:hover,.register-cancel{
-    border: 1px solid #C04000;
-    border-color: #C04000 !important;
+ .register-cancel{
+    border: 1px solid #4B0082;
     background-color: #ffffff !important;
-    color: #C04000;
+    color:#4B0082 !important;
 }
 .top-heading{
     font-size: 18px;
     font-weight: bold;
+    /* color: #6D19FC; */
 }
 h6{
     font-size: 14px;
 }
+
 .btn-get-started{
-    border-radius: 0px !important;
-    padding: 10px 25px;
-    font-weight: 20px;
-    font-weight: 700;
     box-shadow: none !important;
-    color: #FFFFFF;
+    border-radius: 0px !important;
+    padding: 5px 25px;
+    font-weight: 700 !important;
+    text-align: center;
+    font-size: 12px !important;
+    text-transform: uppercase;
+    margin:  20px 0 20px 0;
+    border:  1px solid #6D19FC !important;
+    background-color: #6D19FC !important;
+    text-transform: uppercase;
+    color: white;
 }
 .btn-get-started:hover{
-    background-color: #FFFFFF;
-    color: #ff9b23;
-    border: 2px solid #ff9b23;
-    box-shadow: none !important;
+    border:  1px solid #6D19FC !important;
+    background-color: white !important;
+    color: #6D19FC !important;
 }
+    
