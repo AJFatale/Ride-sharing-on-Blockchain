@@ -1,0 +1,60 @@
+.requestedRidesContent{
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.requestedRidesContent{
+    width: calc(100% - 16rem);
+    margin-top: 70px;
+    margin-left: 16rem;
+    transition: all 0.4s;
+} 
+
+.requestedRidesContent.active {
+    width: 100%;
+    margin: 40px 0 0 0;
+}
+.rideTitle{
+  color:#6D19FC;
+  font-size: 25px;
+  font-weight: 700;
+}
+.joinButton,.cancelButton{
+    width: 85px;
+    border-radius: 15px;
+    box-shadow: none !important;
+    padding: 5px 10px;
+    font-weight: 700;
+    text-align: center;
+    font-size: 12px;
+    text-transform: uppercase;
+    border: 1px solid #6D19FC;
+}
+.joinButton{
+  background-color: white;
+  color: #6D19FC;
+}
+.cancelButton{
+  background-color: #6D19FC;
+  color: white;
+}
+.joinButton:hover{
+  background-color: #6D19FC;
+  color: white;
+}
+.cancelButton:hover{
+  background-color: white;
+  color: #6D19FC;
+  border: 1px solid #6D19FC;
+}
+  @media (max-width: 768px) {
+    
+     .requestedRidesContent{
+      width: 100%;
+      margin: 70px 0 0 0;
+    }
+    .requestedRidesContent.active {
+      margin-left: 16rem;
+      width: calc(100% - 16rem);
+    }
+  }

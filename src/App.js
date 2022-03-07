@@ -6,6 +6,7 @@ import SearchCabs from './components/SearchCabs';
 import Dashboard from './components/UserDashboard/Dashboard';
 import CreateRide from './components/UserDashboard/CreateRide';
 import AvailableRides from './components/UserDashboard/AvailableRides';
+import RequestedRide from './components/UserDashboard/RequestedRide';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route exact path='/userDashboard' element={<Dashboard />} />
             <Route exact path='/create_ride' element={<CreateRide />} />
             <Route exact path='/available_rides' element={<AvailableRides />} />
+            <Route exact path='/requested_ride' element={<RequestedRide />} />
           </Routes>
       </Router>
     </div>

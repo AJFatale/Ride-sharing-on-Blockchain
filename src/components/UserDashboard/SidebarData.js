@@ -3,7 +3,6 @@ import * as AiIcons from 'react-icons/ai';
 import * as BsIcons from 'react-icons/bs';
 import * as FiIcons from 'react-icons/fi';
 import * as MdIcons from 'react-icons/md';
-import * as RiIcons from 'react-icons/ri';
 
 export const SidebarData = [
   {
@@ -24,16 +23,8 @@ export const SidebarData = [
   },
   {
     title: 'Requested Rides',
-    path: '/expenses',
+    path: '/requested_ride',
     icon: <MdIcons.MdRequestPage className="text-white"/>,
-    cNameLi: 'nav-item py-1',
-    cNameLink: 'nav-link text-decoration-none sideNavLink',
-    cNameSpan: 'ms-3 text-white'
-  },
-  {
-    title: 'Join Ride',
-    path: '/join_ride',
-    icon: <RiIcons.RiTakeawayFill className="text-white" />,
     cNameLi: 'nav-item py-1',
     cNameLink: 'nav-link text-decoration-none sideNavLink',
     cNameSpan: 'ms-3 text-white'
