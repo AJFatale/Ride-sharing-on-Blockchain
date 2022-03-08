@@ -33,24 +33,24 @@ function RequestedRide(){
                         <td>Borivali,Mumbai</td>
                         <td>Bandra,Mumbai</td>
                         <td>4:30 pm</td>
-                        <td><Button className="joinButton">Join Ride</Button></td>
-                        <td><Button className="cancelButton">Cancel</Button></td>
+                        <td><Button className="joinButton">Accept</Button></td>
+                        <td><Button className="cancelButton">Reject</Button></td>
                     </tr>
                     <tr>
                         <td>Jacob</td>
                         <td>Vashi,Mumbai</td>
                         <td>Borivali</td>
                         <td>5.15pm</td>
-                        <td><Button className="joinButton">Join Ride</Button></td>
-                        <td><Button className="cancelButton">Cancel</Button></td>
+                        <td><Button className="joinButton">Accept</Button></td>
+                        <td><Button className="cancelButton">Reject</Button></td>
                     </tr>
                     <tr>
                         <td>John</td>
                         <td>Bandra</td>
                         <td>Vashi</td>
                         <td>9.10am</td>
-                        <td><Button className="joinButton">Join Ride</Button></td>
-                        <td><Button className="cancelButton">Cancel</Button></td>
+                        <td><Button className="joinButton">Accept</Button></td>
+                        <td><Button className="cancelButton">Reject</Button></td>
                     </tr>
                     </tbody>
                 </Table>
