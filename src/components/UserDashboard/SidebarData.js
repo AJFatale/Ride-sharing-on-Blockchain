@@ -39,7 +39,7 @@ export const SidebarData = [
   },
   {
     title: 'Account',
-    path: '/account',
+    path: '/user_account',
     icon: <BsIcons.BsFillPersonFill className="text-white"/>,
     cNameLi: 'nav-item py-1',
     cNameLink: 'nav-link text-decoration-none sideNavLink',

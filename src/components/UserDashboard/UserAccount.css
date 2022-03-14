@@ -1,0 +1,48 @@
+.userAccount{
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.userAccount{
+    width: calc(100% - 16rem);
+    margin-top: 70px;
+    margin-left: 16rem;
+    transition: all 0.4s;
+} 
+
+.userAccount.active {
+    width: 100%;
+    margin: 40px 0 0 0;
+}
+.rideTitle{
+  color:#6D19FC;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+@media (min-width:350px){
+   .cardCol{
+     text-align: left;
+     align-items: center;
+     justify-content: center;
+     max-width: 400px;
+     min-width: 200px;
+   }
+   .personIcon{
+     text-align: center;
+   }
+   .userDetails{
+     margin-left: 10px;
+   }
+}
+  @media (max-width: 768px) {
+    
+     .userAccount{
+      width: 100%;
+      margin: 70px 0 0 0;
+    }
+    .userAccount.active {
+      margin-left: 16rem;
+      width: calc(100% - 16rem);
+    }
+  }

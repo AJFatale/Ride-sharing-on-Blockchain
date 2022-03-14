@@ -18,7 +18,7 @@ function Home(){
             }}
         >
             <Container>
-                    <Col xs={12} lg={12} className="top-heading text-center flex-column align-items-center justify-content-center">
+                    <Col xs={12} lg={12} className="text-center flex-column align-items-center justify-content-center">
                         <h6>Book for less today!! Try rideShare</h6>
                         <h1>Need to travel? Get a rider or Find a seat</h1>
                         <Link to="/SearchCabs">
