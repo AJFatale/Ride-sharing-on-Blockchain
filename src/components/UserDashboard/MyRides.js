@@ -4,21 +4,21 @@ import DashNav from './DashNav';
 import Sidebar from './Sidebar';
 import './RequestedRide.css';
 
-function RequestedRide(){
+function MyRides(){
 
     const [sidebar, setSidebar] = useState(false);
 
     const showSidebar = () => setSidebar(!sidebar);
 
-    //manage state of accept button
-    const [acceptRide, setAcceptRide] = useState(true);
+    //manage state for starting the ride
+    const [startRide,setStartRide] = useState(true);
 
-    //handleAcceptRide() will be called after accepting the ride
-    const handleAcceptRide = () => {
-        setAcceptRide(false);
+    //handleStartRide() will be called after Starting the ride
+    const handleStartRide = () => {
+        setStartRide(false);
 
-        //call accept passenger ride function here
-        console.log("acceptPassengerRequest() called");
+        // called to start ride
+        console.log("startRide() called");
     }
 
     return(
@@ -26,7 +26,7 @@ function RequestedRide(){
             <DashNav sidebar={sidebar} showSidebar={showSidebar} />
             <Sidebar sideNav={sidebar} />
             <div id="requestedRidesContent" className={ sidebar ? 'requestedRidesContent p-5 active' : 'requestedRidesContent p-5'}>
-                <h1 className="rideTitle">Requested Rides</h1>
+                <h1 className="rideTitle">My Rides</h1>
                 <Table className="mt-3" responsive="sm">
                     <thead>
                         <tr>
@@ -44,13 +44,9 @@ function RequestedRide(){
                             <td>Borivali,Mumbai</td>
                             <td>Bandra,Mumbai</td>
                             <td>4:30 pm</td>
-                            <td>{ acceptRide ? <Button className="joinButton" onClick={handleAcceptRide}>Accept</Button>
-                                             : <span className="accepted">Accepted</span> 
-                                }
-                            </td>
-                            <td><Button className="cancelButton">Reject</Button></td>
-                            {/* after clicking the  reject, all data of that particular row should be gone*/}
+                            <td>{ startRide ? <Button className="joinButton" onClick = { handleStartRide }>Start</Button> : <span className="requested"> Ride Started</span> }</td>
                         </tr>
+                        {/* add here all rides by calling a getRide() */}
                     </tbody>
                 </Table>
             </div>
@@ -58,4 +54,4 @@ function RequestedRide(){
     );
 }
 
-export default RequestedRide;
+export default MyRides;

@@ -1,0 +1,14 @@
+.blockAddress{
+    margin: auto 7px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 150px;
+}
+
+@media (max-width: 500px) {
+    .blockAddress{
+        display: none;
+        visibility: hidden;
+    }
+}

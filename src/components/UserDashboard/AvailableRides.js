@@ -10,6 +10,17 @@ function AvailableRides(){
 
     const showSidebar = () => setSidebar(!sidebar);
 
+    //manage state of join ride button
+    const [joinRide, setJoinRide] = useState(true);
+
+    //handleRide() will be called after joining the ride
+    const handleRide = () => {
+        setJoinRide(false);
+
+       // called by passenger to send request to join ride
+        console.log("joinRide() called");
+    }
+
     return(
         <div>
             <DashNav sidebar={sidebar} showSidebar={showSidebar} />
@@ -32,21 +43,12 @@ function AvailableRides(){
                         <td>Borivali,Mumbai</td>
                         <td>Bandra,Mumbai</td>
                         <td>4:30 pm</td>
-                        <td><Button className="joinButton">Join Ride</Button></td>
-                    </tr>
-                    <tr>
-                        <td>Jacob</td>
-                        <td>Vashi,Mumbai</td>
-                        <td>Borivali</td>
-                        <td>5.15pm</td>
-                        <td><Button className="joinButton">Join Ride</Button></td>
-                    </tr>
-                    <tr>
-                        <td>John</td>
-                        <td>Bandra</td>
-                        <td>Vashi</td>
-                        <td>9.10am</td>
-                        <td><Button className="joinButton">Join Ride</Button></td>
+                        <td>
+                            {/* if the ride is not joined button will appear else it will be clicked */}
+                            { joinRide ? <Button className="joinButton" onClick={handleRide}>Join Ride</Button>
+                                   : <span className="requested">Requested</span> 
+                            }
+                        </td>
                     </tr>
                     </tbody>
                 </Table>

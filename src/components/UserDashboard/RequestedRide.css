@@ -34,6 +34,14 @@
   background-color: white;
   color: #6D19FC;
 }
+.accepted{
+  color: #f400a1;
+  font-weight: 700;
+  font-size: 12px;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 5px 10px;
+}
 .cancelButton{
   background-color: #6D19FC;
   color: white;

@@ -3,6 +3,7 @@ import * as AiIcons from 'react-icons/ai';
 import * as BsIcons from 'react-icons/bs';
 import * as FiIcons from 'react-icons/fi';
 import * as MdIcons from 'react-icons/md';
+import * as RiIcons from 'react-icons/ri';
 
 export const SidebarData = [
   {
@@ -33,6 +34,14 @@ export const SidebarData = [
     title: 'Available Rides',
     path: '/available_rides',
     icon: <MdIcons.MdOutlineBusAlert className="text-white"/>,
+    cNameLi: 'nav-item py-1',
+    cNameLink: 'nav-link text-decoration-none sideNavLink',
+    cNameSpan: 'ms-3 text-white'
+  },
+  {
+    title: 'My Rides',
+    path: '/my_rides',
+    icon: <RiIcons.RiMotorbikeFill className="text-white"/>,
     cNameLi: 'nav-item py-1',
     cNameLink: 'nav-link text-decoration-none sideNavLink',
     cNameSpan: 'ms-3 text-white'

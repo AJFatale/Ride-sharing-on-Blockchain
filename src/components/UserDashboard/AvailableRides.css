@@ -19,6 +19,14 @@
   font-size: 25px;
   font-weight: 700;
 }
+.joinButton, .requested{
+      color: #f400a1;
+      font-weight: 700;
+      font-size: 12px;
+      text-align: center;
+      text-transform: uppercase;
+      padding: 5px 10px;
+}
 .joinButton{
       background-color: white;
       width: 85px;
@@ -26,17 +34,13 @@
       border: 1px solid #6D19FC;
       border-radius: 15px;
       box-shadow: none !important;
-      padding: 5px 10px;
-      font-weight: 700;
-      text-align: center;
-      font-size: 12px;
-      text-transform: uppercase;
 }
 .joinButton:hover{
       background-color: #6D19FC;
       color: white;
       box-shadow: none !important;
 }
+
   @media (max-width: 768px) {
     
      .availableRidesContent{
