@@ -8,7 +8,7 @@ import Sidebar from './Sidebar';
 import './CreateRide.css';
 import Home from '../Home';
 
-function CreateRide({userAccount, user}){
+function CreateRide({user}){
     
     const [sidebar, setSidebar] = useState(false);
 
@@ -20,7 +20,7 @@ function CreateRide({userAccount, user}){
     if(localStorage.getItem('mobile_no')){
         return(
         <div>
-            <DashNav sidebar={sidebar} showSidebar={showSidebar} userAccount={userAccount} user={user} />
+            <DashNav sidebar={sidebar} showSidebar={showSidebar} user={user} />
             <Sidebar sideNav={sidebar} />
             <div id="createRide" className={sidebar ? 'createRide active' : 'createRide'}>
                 <Container>

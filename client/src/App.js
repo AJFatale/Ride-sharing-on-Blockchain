@@ -10,6 +10,7 @@ import RequestedRide from './components/UserDashboard/RequestedRide';
 import MyRides from './components/UserDashboard/MyRides';
 import UserAccount from './components/UserDashboard/UserAccount';
 import { useState, useEffect } from "react";
+import Interact from "./utils/interact";
 
 function App() {
   const [user, setLoginUser] = useState({})
@@ -23,6 +24,7 @@ function App() {
 
   return (
     <div className="App">
+      <Interact>
       <Router>
         <Navigation setLoginUser={setLoginUser} setUserAccount={setUserAccount} userAccount={userAccount} />
         <Routes>
@@ -35,7 +37,9 @@ function App() {
           <Route exact path='/user_account' element={<UserAccount userAccount={userAccount} user={user}/>} />
           <Route exact path='/my_rides' element={<MyRides userAccount={userAccount} user={user} />} />
         </Routes>
+        {/* </Interact> */}
       </Router>
+      </Interact>
     </div>
   );
 }

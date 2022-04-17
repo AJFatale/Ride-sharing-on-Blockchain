@@ -1,10 +1,18 @@
-import React,{ useState } from 'react';
+import React,{ useState, useContext } from 'react';
 import { Table, Button } from 'react-bootstrap';
 import DashNav from './DashNav';
 import Sidebar from './Sidebar';
 import './AvailableRides.css';
+import contractContext from '../../utils/contractContext';
+// import Interact from '../../utils/interact';
 
 function AvailableRides({userAccount, user}){
+
+    const {currentAccount,accountBalance,checkWalletIsConnected,connectWalletHandler,checkWalletConnected} = useContext(contractContext);
+    console.log(connectWalletHandler())
+    console.log(accountBalance)
+    // console.log(currentAccount)
+    // console.log(checkWalletConnected())
 
     const [sidebar, setSidebar] = useState(false);
 

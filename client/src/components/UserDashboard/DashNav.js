@@ -1,15 +1,19 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav} from 'react-bootstrap';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { BsPersonCircle } from 'react-icons/bs';
 import './DashNav.css';
 import Home from '../Home';
+import contractContext from '../../utils/contractContext';
 
 function DashNav(props) {
 
+    const {currentAccount,accountBalance,checkWalletIsConnected,connectWalletHandler,checkWalletConnected} = useContext(contractContext);
+    console.log(connectWalletHandler())
+    console.log(accountBalance)
     // initialise blockchain address as a string
-    const blockAddress = props.userAccount.address;
+    const blockAddress = currentAccount;
 // console.log(props.userAccount.address)
 if(localStorage.getItem('mobile_no')){
     return(

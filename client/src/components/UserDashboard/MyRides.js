@@ -1,11 +1,15 @@
-import React,{ useState } from 'react';
+import React,{ useState, useContext } from 'react';
 import { Table, Button } from 'react-bootstrap';
 import DashNav from './DashNav';
 import Sidebar from './Sidebar';
 import './RequestedRide.css';
-import Home from '../Home'
+import Home from '../Home';
+import contractContext from '../../utils/contractContext';
 
-function MyRides({userAccount,user}){
+function MyRides({user}){
+    const {currentAccount,accountBalance,checkWalletIsConnected,connectWalletHandler,checkWalletConnected} = useContext(contractContext);
+    console.log(connectWalletHandler())
+    console.log(accountBalance)
 
     const [sidebar, setSidebar] = useState(false);
 
@@ -25,7 +29,7 @@ function MyRides({userAccount,user}){
     if(localStorage.getItem('mobile_no')){
         return(
         <div>
-            <DashNav sidebar={sidebar} showSidebar={showSidebar} userAccount={userAccount} user={user}/>
+            <DashNav sidebar={sidebar} showSidebar={showSidebar} user={user}/>
             <Sidebar sideNav={sidebar} />
             <div id="requestedRidesContent" className={ sidebar ? 'requestedRidesContent p-5 active' : 'requestedRidesContent p-5'}>
                 <h1 className="rideTitle">My Rides</h1>

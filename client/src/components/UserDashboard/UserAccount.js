@@ -1,20 +1,24 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { Container, Col} from 'react-bootstrap';
 import { BsPersonFill } from "react-icons/bs";
 import DashNav from './DashNav';
 import Sidebar from './Sidebar';
 import './UserAccount.css';
-import Home from '../Home'
+import Home from '../Home';
+import contractContext from '../../utils/contractContext';
 
-function UserAccount({userAccount,user}){
+
+function UserAccount({user}){
 
     const [sidebar, setSidebar] = useState(false);
+    const {currentAccount,accountBalance,checkWalletIsConnected,connectWalletHandler,checkWalletConnected} = useContext(contractContext);
+    console.log(connectWalletHandler())
 
     const showSidebar = () => setSidebar(!sidebar);
     if(localStorage.getItem('mobile_no')){
         return(
         <div>
-            <DashNav sidebar={sidebar} showSidebar={showSidebar} userAccount={userAccount} user={user} />
+            <DashNav sidebar={sidebar} showSidebar={showSidebar} user={user} />
             <Sidebar sideNav={sidebar} />
             <div id="userAccount" className={ sidebar ? 'userAccount p-5 active' : 'userAccount p-5'}>
                 <Container>
@@ -38,11 +42,11 @@ function UserAccount({userAccount,user}){
                             </Col>
                             <Col lg={12} md={12} xs={12} className="m-2">
                                 <b className="p-1">Blockchain Address: </b>
-                                <span className="userDetails p-1">{userAccount.address}</span>
+                                <span className="userDetails p-1">{currentAccount}</span>
                             </Col>
                             <Col lg={12} md={12} xs={12} className="m-2">
                                 <b className="p-1">Balance: </b>
-                                <span className="userDetails p-1">{userAccount.balance}</span>
+                                <span className="userDetails p-1">{accountBalance}</span>
                             </Col>
                     </Col>
                 </Container>
