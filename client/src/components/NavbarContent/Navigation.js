@@ -42,12 +42,12 @@ function Navigation({setLoginUser, setUserAccount,userAccount}){
                         />
                     </NavDropdown>
                     <NavDropdown title="Register" id="collasible-nav-dropdown" className="ms-3">
-                        <NavDropdown.Item href="#adminRegister" onClick={() => setModalAdminRegister(true)} className="navDropdownItem">Admin</NavDropdown.Item>
+                        {/* <NavDropdown.Item href="#adminRegister" onClick={() => setModalAdminRegister(true)} className="navDropdownItem">Admin</NavDropdown.Item>
                         <AdminRegister
                             show={modalAdminRegister}
                             onHide={() => setModalAdminRegister(false)}
                         />
-                        <NavDropdown.Divider />
+                        <NavDropdown.Divider /> */}
                         <NavDropdown.Item href="#userRegister" onClick={() => setModalUserRegister(true)} className="navDropdownItem">User</NavDropdown.Item>
                         <UserRegister
                             show={modalUserRegister}

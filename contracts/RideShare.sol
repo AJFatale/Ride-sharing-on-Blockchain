@@ -36,10 +36,13 @@ contract Rideshare {
 
         //ride should not be started to join ride by passenger
         require(keccak256(bytes(curRide.rideStatus)) == keccak256(bytes("Initial")));
-        require(msg.value == curRide.drivingCost);
+        require(msg.value >= curRide.drivingCost);
         rides[rideNumber].passengerAccts.push(msg.sender);
         rides[rideNumber].rideStatus = "passengerRequested";
 
+    }
+    function getContractBalance() public view returns(uint){
+        return address(this).balance;
     }
 
     // get list of all passenger in given ride
@@ -53,7 +56,7 @@ contract Rideshare {
     }
 
     // get rides from all ride by id of rides
-    function getRide(uint rideNumber) public view returns ( address, uint, uint, string memory, string memory, uint, uint, string memory) {
+    function getRide(uint rideNumber) public view returns ( address, uint, uint, string memory, string memory, uint, uint, string memory, address[] memory) {
     Ride memory ride = rides[rideNumber];
     return (
       ride.driver,
@@ -63,7 +66,8 @@ contract Rideshare {
       ride.destAddress,
       ride.createdAt,
       ride.departAt,
-      ride.rideStatus
+      ride.rideStatus,
+      ride.passengerAccts
 
       );
     }
@@ -116,17 +120,19 @@ contract Rideshare {
     function startRide(uint _rideNumber) public{
         Ride memory curRide = rides[_rideNumber];
         require(msg.sender == curRide.driver);
-        require(keccak256(bytes(curRide.rideStatus)) == keccak256(bytes("Initial")));
         rides[_rideNumber].rideStatus = "enroute";
     }
     
     // Done -----To-Do - When ride is completed, passenger will call the function and change ride status to completed and amount from contract to driver account will be transferred.
     function endRide(uint _rideNumber) public returns(bool){
         Ride memory curRide = rides[_rideNumber];
-        require(msg.sender == curRide.driver);
+        if (curRide.passengerAccts.length>0){
+        require(msg.sender != curRide.driver);
+        }
         require(keccak256(bytes(curRide.rideStatus)) == keccak256(bytes("enroute")));
         require(address(this).balance>=curRide.passengerAccts.length*curRide.drivingCost);
-        payable(curRide.driver).transfer(curRide.passengerAccts.length*curRide.drivingCost);
+        uint256 amount = curRide.passengerAccts.length*curRide.drivingCost*1000000000000000000;
+        payable(curRide.driver).transfer(amount);
         rides[_rideNumber].rideStatus = "completed";
         return true;
     }
@@ -137,7 +143,7 @@ contract Rideshare {
    // accept passenger's request to ride --- called by driver
     function acceptPassengerRequest(uint rideNumber, address passengerAddress) public {
     Ride memory curRide = rides[rideNumber];
-    require(keccak256(bytes(curRide.rideStatus)) == keccak256(bytes("Initial")));
+    require(keccak256(bytes(curRide.rideStatus)) == keccak256(bytes("passengerRequested")));
     require(msg.sender == curRide.driver);
     for(uint i=0; i < curRide.passengerAccts.length; i++) {
        if ( curRide.passengerAccts[i] == passengerAddress) {
@@ -148,6 +154,9 @@ contract Rideshare {
 
 
 }
+
+
+
 
 
 
