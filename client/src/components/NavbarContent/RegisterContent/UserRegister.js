@@ -43,7 +43,7 @@ function DriverRegister(props) {
             aria-labelledby="contained-modal-title-vcenter"
             centered
         >
-            {console.log("User", user)}
+            {/* {console.log("User", user)} */}
 
             <Modal.Header className="registerHeader" closeButton>
                 <Modal.Title className="registerTitle" id="contained-modal-title-vcenter">

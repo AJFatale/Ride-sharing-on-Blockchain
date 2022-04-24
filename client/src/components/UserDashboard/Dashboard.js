@@ -3,7 +3,6 @@ import DashNav from './DashNav';
 import Sidebar from './Sidebar';
 import DashboardContent from './DashboardContent';
 import Web3 from 'web3';
-import { loadContract } from '../../utils/load-contract';
 import { ethers } from "ethers";
 import Home from '../Home'
 import {useContext} from 'react';
@@ -15,9 +14,9 @@ import contractContext from '../../utils/contractContext';
 function Dashboard({ user, userAccount, setUserAccount}) {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
-  const {currentAccount,accountBalance,checkWalletIsConnected,connectWalletHandler,checkWalletConnected} = useContext(contractContext);
-  console.log(connectWalletHandler())
-  console.log(accountBalance)
+  const {currentAccount,accountBalance,connectWalletHandler} = useContext(contractContext);
+  connectWalletHandler()
+
   // console.log(currentAccount)
   // console.log(checkWalletConnected())
 
@@ -76,7 +75,7 @@ function Dashboard({ user, userAccount, setUserAccount}) {
   if(localStorage.getItem('mobile_no')){
   return (
     <div className="sidebarNav">
-      <DashNav sidebar={sidebar} showSidebar={showSidebar} user={user} userAccount={userAccount} />
+      <DashNav sidebar={sidebar} showSidebar={showSidebar} user={user} />
       <Sidebar sideNav={sidebar} />
       <DashboardContent sideNav={sidebar} />
     </div>

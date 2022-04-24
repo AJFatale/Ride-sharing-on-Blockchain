@@ -1,4 +1,4 @@
-import React,{ useState,useContext } from 'react';
+import React,{ useState,useContext,useEffect } from 'react';
 import { Table, Button } from 'react-bootstrap';
 import DashNav from './DashNav';
 import Sidebar from './Sidebar';
@@ -9,23 +9,37 @@ import contractContext from '../../utils/contractContext';
 
 function RequestedRide({user}){
 
-    const {currentAccount,accountBalance,checkWalletIsConnected,connectWalletHandler,checkWalletConnected} = useContext(contractContext);
-    console.log(connectWalletHandler())
-    console.log(accountBalance)
+    const {connectWalletHandler,currentAccount,listMyRides,requestedRides,acceptPassengerRequest,endRide} = useContext(contractContext);
+    connectWalletHandler()
+    // console.log(accountBalance)
+
+    useEffect(()=>{
+        listMyRides(currentAccount)
+    },[]);
+    // console.log(requestedRides)
     const [sidebar, setSidebar] = useState(false);
 
     const showSidebar = () => setSidebar(!sidebar);
 
     //manage state of accept button
-    const [acceptRide, setAcceptRide] = useState(true);
+    const [acceptRideState, setAcceptRideState] = useState(null);
+    const [endRideState, setEndRideState] = useState(null);
 
     //handleAcceptRide() will be called after accepting the ride
-    const handleAcceptRide = () => {
-        setAcceptRide(false);
+    const handleAcceptRide = (e, id, address) => {
+        setAcceptRideState(id);
+        acceptPassengerRequest(id,address)
 
         //call accept passenger ride function here
         console.log("acceptPassengerRequest() called");
     }
+    const handleEndRide = (e, id) => {
+        setEndRideState(id);
+        endRide(id)
+        console.log("endRide() called for:",id);
+    }
+
+
     if(localStorage.getItem('mobile_no')){
         return(
         <div>
@@ -36,27 +50,51 @@ function RequestedRide({user}){
                 <Table className="mt-3" responsive="sm">
                     <thead>
                         <tr>
+                            <th>No.</th>
                             <th>Username</th>
                             <th>Pick Up</th>
                             <th>Destination</th>
+                            <th>Ride Date</th>
                             <th>Ride Time</th>
-                            <th></th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
+                        {/* {console.log(requestedRides)} */}
+                    {requestedRides ? requestedRides.map((item, index) => {
+                        return (
+                            item[0].toLowerCase()===currentAccount ? 
                         <tr>
-                            <td>Mark</td>
-                            <td>Borivali,Mumbai</td>
-                            <td>Bandra,Mumbai</td>
-                            <td>4:30 pm</td>
-                            <td>{ acceptRide ? <Button className="joinButton" onClick={handleAcceptRide}>Accept</Button>
-                                             : <span className="accepted">Accepted</span> 
-                                }
-                            </td>
-                            <td><Button className="cancelButton">Reject</Button></td>
+                            <td>{index+1}</td>
+                            <td>{item[8][0]}</td>
+                            <td>{item[3]}</td>
+                            <td>{item[4]}</td>
+                            <td>{item[9]}</td>
+                            <td>{item[10]}</td> 
+                            { acceptRideState!=item[11] && item[7]==="passengerRequested" ? <td><Button className="joinButton" onClick={e=> handleAcceptRide(e, item[11], item[8][0])}>Accept</Button></td> : null}
+                            {item[7]==="passengerConfirmed" || item[7]==="enroute" ? <td><span className="requested">Confirmed</span></td> : null}
+                            {item[7]==="completed" ? <td><span className="accepted">Ride Ended</span></td> : null}
+                            {item[7]==="enroute" && endRideState!=item[11] && item[8].length<1 ? <td><Button className="joinButton" onClick={e=> handleEndRide(e, item[11])}>End Ride</Button></td>: null}
+                            {/* // (item[7]==="passengerRequested" ? <td><span className="requested">Requested</span></td> : <td><span className="requested">Confirmed</span></td>) } */}
                             {/* after clicking the  reject, all data of that particular row should be gone*/}
                         </tr>
+                        :
+                        <tr> 
+                            <td>{index+1}</td>
+                            <td>{item[0]}</td>
+                            <td>{item[3]}</td>
+                            <td>{item[4]}</td>
+                            <td>{item[9]}</td>
+                            <td>{item[10]}</td>
+                            {item[7]==="passengerRequested" ? <td><span className="requested">Requested</span></td> : null}
+                            {item[7]==="passengerConfirmed" ? <td><span className="requested">Confirmed</span></td> : null}
+                            {item[7]==="enroute" && endRideState!=item[11] ? <td><Button className="joinButton" onClick={e=> handleEndRide(e, item[11])}>End Ride</Button></td>: null}                        
+                            {item[7]==="completed" ? <td><span className="accepted">Ride Ended</span></td> : null}                    
+                            {/* // <span className="accepted">Ride Completed</span>  */}
+                            
+                        </tr> 
+                        );
+                    }) : null }
                     </tbody>
                 </Table>
             </div>

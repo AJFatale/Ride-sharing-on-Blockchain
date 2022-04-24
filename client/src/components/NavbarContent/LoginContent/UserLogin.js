@@ -35,8 +35,7 @@ const navigate=useNavigate();
         .then(res => {
             alert(res.data.message)
             // alert(res.data.user)
-            setUser({ mobile_no:"",
-            password:""})
+            setUser({ mobile_no:"", password:""})
 
             props.setLoginUser(res.data.user)
             
@@ -45,8 +44,6 @@ const navigate=useNavigate();
             // onLogin()
             localStorage.setItem('mobile_no', res.data.user.mobile_no);
             localStorage.setItem('email', res.data.user.email);
-
-
             navigate('/userDashboard')
             }
         })

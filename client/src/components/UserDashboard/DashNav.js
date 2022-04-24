@@ -9,9 +9,9 @@ import contractContext from '../../utils/contractContext';
 
 function DashNav(props) {
 
-    const {currentAccount,accountBalance,checkWalletIsConnected,connectWalletHandler,checkWalletConnected} = useContext(contractContext);
-    console.log(connectWalletHandler())
-    console.log(accountBalance)
+    const {currentAccount,accountBalance,connectWalletHandler} = useContext(contractContext);
+    connectWalletHandler()
+    // console.log(accountBalance)
     // initialise blockchain address as a string
     const blockAddress = currentAccount;
 // console.log(props.userAccount.address)

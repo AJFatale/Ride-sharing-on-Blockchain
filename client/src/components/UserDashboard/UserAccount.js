@@ -11,8 +11,8 @@ import contractContext from '../../utils/contractContext';
 function UserAccount({user}){
 
     const [sidebar, setSidebar] = useState(false);
-    const {currentAccount,accountBalance,checkWalletIsConnected,connectWalletHandler,checkWalletConnected} = useContext(contractContext);
-    console.log(connectWalletHandler())
+    const {currentAccount,accountBalance,connectWalletHandler} = useContext(contractContext);
+    connectWalletHandler()
 
     const showSidebar = () => setSidebar(!sidebar);
     if(localStorage.getItem('mobile_no')){

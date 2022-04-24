@@ -14,28 +14,28 @@ import Interact from "./utils/interact";
 
 function App() {
   const [user, setLoginUser] = useState({})
-  const [userAccount, setUserAccount] = useState({}); 
+  // const [userAccount, setUserAccount] = useState({}); 
 
-  useEffect(() => {
-       console.log(userAccount);
-       console.log(user)
-      //  props.setUserAccount(data)
-      },[userAccount]);
+  // useEffect(() => {
+  //     //  console.log(userAccount);
+  //      console.log(user)
+  //     //  props.setUserAccount(data)
+  //     },[userAccount]);
 
   return (
     <div className="App">
       <Interact>
       <Router>
-        <Navigation setLoginUser={setLoginUser} setUserAccount={setUserAccount} userAccount={userAccount} />
+        <Navigation setLoginUser={setLoginUser} />
         <Routes>
           <Route exact path='/' element={<Home />} />
           <Route exact path='/SearchCabs' element={<SearchCabs />} />
-          <Route exact path='/userDashboard' element={<Dashboard user={user} userAccount={userAccount} setUserAccount={setUserAccount}/>} />
-          <Route exact path='/create_ride' element={<CreateRide userAccount={userAccount} user={user}/>} />
-          <Route exact path='/available_rides' element={<AvailableRides userAccount={userAccount} user={user} />} />
-          <Route exact path='/requested_ride' element={<RequestedRide userAccount={userAccount} user={user}/>} />
-          <Route exact path='/user_account' element={<UserAccount userAccount={userAccount} user={user}/>} />
-          <Route exact path='/my_rides' element={<MyRides userAccount={userAccount} user={user} />} />
+          <Route exact path='/userDashboard' element={<Dashboard user={user} />} />
+          <Route exact path='/create_ride' element={<CreateRide  user={user}/>} />
+          <Route exact path='/available_rides' element={<AvailableRides  user={user} />} />
+          <Route exact path='/requested_ride' element={<RequestedRide  user={user}/>} />
+          <Route exact path='/user_account' element={<UserAccount  user={user}/>} />
+          <Route exact path='/my_rides' element={<MyRides  user={user} />} />
         </Routes>
         {/* </Interact> */}
       </Router>
