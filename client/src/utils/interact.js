@@ -4,7 +4,7 @@ import contract from '../contracts/Rideshare.json';
 import contractContext from './contractContext';
 import { ethers } from "ethers";
 
-const contractAddress = "0x4D8aC8A4EBad09AAa7faA368ecB4b61B6Fd7425C";
+const contractAddress = "0x2B4230c529005E48d3e0dC979E094843E494C907";
 
 function Interact(props) {
     const [currentAccount, setCurrentAccount] = useState(null);
@@ -191,7 +191,7 @@ function Interact(props) {
     }
 
     const cancelRide = async (rideNumber) => {
-        const ride = await contractInstance.methods.cancelRide().call();
+        const ride = await contractInstance.methods.cancelRide(rideNumber).send({from :currentAccount});
         console.log(ride)
     }
 
@@ -219,7 +219,7 @@ function Interact(props) {
             connectWalletHandler: connectWalletHandler, checkWalletConnected: checkWalletConnected, createRide: createRide,
             getTotalRideCount: getTotalRideCount, getRideStatus: getRideStatus, getRide: getRide, totalRideCount, listAvailableRides: listAvailableRides,
             joinRide:joinRide, startRide:startRide,requestedRides, acceptPassengerRequest:acceptPassengerRequest,
-            endRide:endRide
+            endRide:endRide, cancelRide:cancelRide
         }}>
 
             {props.children}

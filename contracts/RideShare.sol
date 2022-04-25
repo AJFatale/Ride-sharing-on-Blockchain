@@ -105,10 +105,11 @@ contract Rideshare {
     function cancelRide(uint _rideNumber) public{
         Ride memory curRide = rides[_rideNumber];
         require(msg.sender == curRide.driver);
-        require(keccak256(bytes(curRide.rideStatus)) == keccak256(bytes("Initial")));
+        require(keccak256(bytes(curRide.rideStatus)) != keccak256(bytes("enroute")));
         require(curRide.passengerAccts.length*curRide.drivingCost <= address(this).balance);
         for(uint i=0; i < curRide.passengerAccts.length; i++) {
-            payable(curRide.passengerAccts[i]).transfer(curRide.drivingCost);
+            uint256 amount = curRide.drivingCost*1000000000000000000;
+            payable(curRide.passengerAccts[i]).transfer(amount);
         }
         rides[_rideNumber].rideStatus = "Cancelled";
 

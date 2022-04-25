@@ -7,7 +7,7 @@ import Home from '../Home';
 import contractContext from '../../utils/contractContext';
 
 function MyRides({user}){
-    const {currentAccount,connectWalletHandler,listMyRides,myRides,startRide} = useContext(contractContext);
+    const {currentAccount,connectWalletHandler,listMyRides,myRides,startRide,cancelRide} = useContext(contractContext);
     connectWalletHandler()
     // console.log(accountBalance)
     
@@ -33,6 +33,7 @@ function MyRides({user}){
     }
     const handleCanceltRide = (e,id) => {
         setCancelRideState(id);
+        cancelRide(id)
         // called to cancel ride
         console.log("cancelRide() called");
     }
