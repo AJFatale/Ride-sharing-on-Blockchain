@@ -63,6 +63,17 @@ app.post("/register", (req, res)=> {
     })
     
 }) 
+app.get("/userCount", (req,res)=> {
+    User.count( {}, function(err, result){
+
+        if(err){
+            res.send(err)
+        }
+        else{
+            res.json({ message:result})
+        }
+
+   })})
 
 app.listen(9002,() => {
     console.log("BE started at port 9002")

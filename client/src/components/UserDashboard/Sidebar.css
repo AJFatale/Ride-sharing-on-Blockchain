@@ -56,6 +56,20 @@
     padding-top: 13rem;
     margin-left: 1rem;
   }
+  .cardBox1,.cardBox2{
+    margin: 5px;
+    background-color: #6D19FC;
+    border: none;
+    border-radius: 0px;
+    color: #FFFFFF;
+  }
+  .cardBox1{
+    background: linear-gradient(110deg, #6D19FC 60%, #a8fc19 40%);
+  }
+  .cardBox2{
+    background: linear-gradient(110deg, #6D19FC 60%, #9D65FD 40%);
+  }
+
   @media (max-width: 768px) {
     #sidebar {
       margin-left: -16rem;

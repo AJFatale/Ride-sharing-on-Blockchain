@@ -3,14 +3,20 @@ import Web3 from 'web3';
 import contract from '../contracts/Rideshare.json';
 import contractContext from './contractContext';
 import { ethers } from "ethers";
+import axios  from "axios";
 
-const contractAddress = "0x2B4230c529005E48d3e0dC979E094843E494C907";
+
+const contractAddress = "0x31f0e6e0826aB8627035CA698826B52523e91307";
 
 function Interact(props) {
     const [currentAccount, setCurrentAccount] = useState(null);
     const [accountBalance, setAccountBalance] = useState(null);
     const [totalRideCount, setTotalRideCount] = useState(null);
     const [availableRides, setAvailableRides] = useState(null);
+    const [availableRideCount, setAvailableRideCount] = useState(null);
+    const [enrouteRideCount, setEnrouteRideCount] = useState(null);
+    const [completedRideCount, setCompletedRideCount] = useState(null);
+    const [userCount, setUserCount] = useState(null);
     const [myRides, setMyRides] = useState(null);
     const [otherRides, setOtherRides] = useState(null);
     const [requestedRides, setRequestedRides] = useState(null)
@@ -177,7 +183,18 @@ function Interact(props) {
 
     const getAvailableRideCount = async () => {
         const ride = await contractInstance.methods.getAvailableRideCount().call();
-        console.log(ride)
+        setAvailableRideCount(ride);
+        // console.log(ride)
+    }
+    const getEnrouteRideCount = async () => {
+        const ride = await contractInstance.methods.getEnrouteRideCount().call();
+        setEnrouteRideCount(ride);
+        // console.log(ride)
+    }
+    const getCompletedRideCount = async () => {
+        const ride = await contractInstance.methods.getCompletedRideCount().call();
+        setCompletedRideCount(ride);
+        // console.log(ride)
     }
 
     const getTotalRideCount = async () => {
@@ -210,7 +227,12 @@ function Interact(props) {
         const passengers = await contractInstance.methods.getPassengers().call();
         console.log(passengers)
     }
-
+    const getUserCount = () => {
+        axios.get("http://localhost:9002/userCount")
+        .then(res => {
+            setUserCount(res.data.message)            
+        })
+    }
 
 
     return (
@@ -219,7 +241,10 @@ function Interact(props) {
             connectWalletHandler: connectWalletHandler, checkWalletConnected: checkWalletConnected, createRide: createRide,
             getTotalRideCount: getTotalRideCount, getRideStatus: getRideStatus, getRide: getRide, totalRideCount, listAvailableRides: listAvailableRides,
             joinRide:joinRide, startRide:startRide,requestedRides, acceptPassengerRequest:acceptPassengerRequest,
-            endRide:endRide, cancelRide:cancelRide
+            endRide:endRide, cancelRide:cancelRide, getAvailableRideCount:getAvailableRideCount,availableRideCount
+            ,getEnrouteRideCount:getEnrouteRideCount,getCompletedRideCount:getCompletedRideCount,enrouteRideCount,completedRideCount,
+            getUserCount:getUserCount ,userCount
+        
         }}>
 
             {props.children}

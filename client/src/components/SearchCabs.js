@@ -19,7 +19,7 @@ import contractContext from '../utils/contractContext';
         listAvailableRides()
         if(availableRides){
           const ride=availableRides[0]
-          console.log(Object.values(ride)[0]);
+        //   console.log(Object.values(ride)[0]);
                     
         }
      }
@@ -61,7 +61,7 @@ import contractContext from '../utils/contractContext';
                 {/* <h1 className="rideTitle">Available Rides</h1> */}
                 
 
-                {getride ?
+                {getride && availableRides.length>0?
                 <Table className="mt-3" responsive="sm" style={{backgroundColor:"#FFFFFF",color: "rgb(109, 25, 252)",borderRadius:"3px"}}>
                     <thead >
                     <tr>
@@ -85,7 +85,8 @@ import contractContext from '../utils/contractContext';
                             {/* <Button className="joinButton">Login</Button> */}
                         
                     {/* </tr> */}
-                     {availableRides.map((item, index) => {
+                    {console.log(availableRides.length)}
+                     {availableRides.length>0 ? availableRides.map((item, index) => {
                         return (
                             // <li className={item.cNameLi}>
                             //     <Link to={item.path} className={item.cNameLink} key={index}>
@@ -102,7 +103,7 @@ import contractContext from '../utils/contractContext';
                     </tr>
 
                         );
-                    })} 
+                    }) : null} 
                     </tbody>
                 </Table>
                 : null }

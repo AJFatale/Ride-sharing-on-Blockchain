@@ -84,6 +84,28 @@ contract Rideshare {
         }
     return rideCount;
     }
+    function getEnrouteRideCount() public view returns(uint) {
+        uint rideCount=0;
+        for (uint i=0;i<rides.length;i++){
+                Ride memory curRide = rides[i];
+                if(keccak256(bytes(curRide.rideStatus)) == keccak256(bytes("enroute"))){
+                    rideCount++;
+                } 
+
+        }
+    return rideCount;
+    }
+    function getCompletedRideCount() public view returns(uint) {
+        uint rideCount=0;
+        for (uint i=0;i<rides.length;i++){
+                Ride memory curRide = rides[i];
+                if(keccak256(bytes(curRide.rideStatus)) == keccak256(bytes("completed"))){
+                    rideCount++;
+                } 
+
+        }
+    return rideCount;
+    }
     
     // get total ride count
     function getTotalRideCount() public view returns(uint){
