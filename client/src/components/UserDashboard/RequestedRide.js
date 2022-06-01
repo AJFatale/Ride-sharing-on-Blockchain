@@ -72,7 +72,7 @@ function RequestedRide({user}){
                         {/* {console.log(requestedRides)} */}
                     {requestedRides ? requestedRides.map((item, index) => {
                         return (
-                            item[0].toLowerCase()===currentAccount ? 
+                            item[0].toLowerCase()===currentAccount && item[8][0] ? 
                         <tr>
                             <td>{index+1}</td>
                             <td>{item[8][0]}</td>

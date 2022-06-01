@@ -3,6 +3,7 @@ import { Container, Form, Col, Row } from 'react-bootstrap';
 import './UserDashboard/AvailableRides.css'
 import { Table, Button } from 'react-bootstrap';
 import contractContext from '../utils/contractContext';
+import background from '../img/search_cab_background.avif'
 
 
 
@@ -30,7 +31,8 @@ import contractContext from '../utils/contractContext';
 
     return (
     <div style={{backgroundColor:"#b53389",
-      backgroundImage: `url("https://images.unsplash.com/photo-1584875939087-f1d9a6d27e97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80")`,
+    backgroundImage: `url(${background})`,
+    //   backgroundImage: `url("https://images.unsplash.com/photo-1584875939087-f1d9a6d27e97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80")`,
       height: '100vh',
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
