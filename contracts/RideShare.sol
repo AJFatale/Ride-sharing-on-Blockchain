@@ -121,7 +121,7 @@ contract Rideshare {
     return false;
     }
 
-    // Done--- TO-DO - ride cancelled by the driver, transfer money back to all account ---- called by driver
+    //ride cancelled by the driver, transfer money back to all account ---- called by driver
     function cancelRide(uint _rideNumber) public{
         Ride memory curRide = rides[_rideNumber];
         require(msg.sender == curRide.driver);
@@ -137,14 +137,14 @@ contract Rideshare {
 
     
 
-    // To-Do - create function to start ride and change ride status to enRoute ----- called by driver
+    //create function to start ride and change ride status to enRoute ----- called by driver
     function startRide(uint _rideNumber) public{
         Ride memory curRide = rides[_rideNumber];
         require(msg.sender == curRide.driver);
         rides[_rideNumber].rideStatus = "enroute";
     }
     
-    // Done -----To-Do - When ride is completed, passenger will call the function and change ride status to completed and amount from contract to driver account will be transferred.
+    //  When ride is completed, passenger will call the function and change ride status to completed and amount from contract to driver account will be transferred.
     function endRide(uint _rideNumber) public returns(bool){
         Ride memory curRide = rides[_rideNumber];
         if (curRide.passengerAccts.length>0){
