@@ -1,16 +1,10 @@
-# Ride-sharing
-
-**Project Setup:**
-
-
-
-
-
-![screencapture-localhost-3000-2022-02-19-23_46_37](https://user-images.githubusercontent.com/60043222/154814538-018a1b06-0a30-434c-afcf-deb45890b25a.png)
-
-![screencapture-localhost-3000-SearchCabs-2022-02-19-23_47_12](https://user-images.githubusercontent.com/60043222/154814622-e3d20559-3149-4525-80de-4259ad318ed1.png)
-
-![screencapture-localhost-3000-2022-02-19-23_50_49](https://user-images.githubusercontent.com/60043222/154814651-1577b51c-6dec-49d7-934f-634c4aaaadd6.png)
-
-![screencapture-localhost-3000-2022-02-19-23_51_11](https://user-images.githubusercontent.com/60043222/154814656-ae672883-e09e-433b-9cf7-33ce616f80ca.png)
-
+# Peer to Peer Ride sharing
+![1](https://user-images.githubusercontent.com/48215294/167393375-3b3db86f-149c-4a44-bda5-5555b2c40699.png)
+![2](https://user-images.githubusercontent.com/48215294/167393390-0d87d548-ce3a-45ae-a2f9-4a1b5208d741.png)
+![3](https://user-images.githubusercontent.com/48215294/167393401-52461a1f-f14f-4424-ace4-bab41dc242c8.png)
+![4](https://user-images.githubusercontent.com/48215294/167393406-62d72599-bc70-40c8-9543-b6c1fa595828.png)
+![5](https://user-images.githubusercontent.com/48215294/167393416-c92fe515-80a8-4105-9bbb-e0b54a59ed78.png)
+![6](https://user-images.githubusercontent.com/48215294/167393426-a2bbba81-e370-49e7-a5e6-597eec6f0e1b.png)
+![7](https://user-images.githubusercontent.com/48215294/167393442-6a93040d-1106-4473-9f72-2c2cef319317.png)
+![8](https://user-images.githubusercontent.com/48215294/167393444-37d5576e-97e2-4161-8096-2ec986753b72.png)
+![9](https://user-images.githubusercontent.com/48215294/167393448-61853385-7599-4ace-b066-f3bf9eef3e2c.png)
