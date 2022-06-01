@@ -41,9 +41,7 @@ contract Rideshare {
         rides[rideNumber].rideStatus = "passengerRequested";
 
     }
-    function getContractBalance() public view returns(uint){
-        return address(this).balance;
-    }
+   
 
     // get list of all passenger in given ride
     function getPassengers(uint rideNumber) view public returns(address[] memory) {
