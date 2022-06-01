@@ -175,6 +175,21 @@ contract Rideshare {
       }
     }
 
+    // reject passenger's request to ride --- called by driver
+    function rejectPassengerRequest(uint rideNumber, address passengerAddress) public {
+    Ride memory curRide = rides[rideNumber];
+    require(keccak256(bytes(curRide.rideStatus)) == keccak256(bytes("passengerRequested")));
+    require(msg.sender == curRide.driver);
+    for(uint i=0; i < curRide.passengerAccts.length; i++) {
+       if ( curRide.passengerAccts[i] == passengerAddress) {
+        rides[rideNumber].rideStatus = "Initial";
+        uint256 amount = curRide.drivingCost*1000000000000000000;
+        payable(curRide.passengerAccts[i]).transfer(amount);
+        rides[rideNumber].passengerAccts[i] = rides[rideNumber].passengerAccts[rides[rideNumber].passengerAccts.length - 1];
+        rides[rideNumber].passengerAccts.pop();        }
+      }
+    }
+
 
 }
 

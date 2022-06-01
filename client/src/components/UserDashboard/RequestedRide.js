@@ -9,7 +9,7 @@ import contractContext from '../../utils/contractContext';
 
 function RequestedRide({user}){
 
-    const {connectWalletHandler,currentAccount,listMyRides,requestedRides,acceptPassengerRequest,endRide} = useContext(contractContext);
+    const {connectWalletHandler,currentAccount,listMyRides,requestedRides,acceptPassengerRequest,endRide,rejectPassengerRequest} = useContext(contractContext);
     connectWalletHandler()
     // console.log(accountBalance)
 
@@ -23,6 +23,7 @@ function RequestedRide({user}){
 
     //manage state of accept button
     const [acceptRideState, setAcceptRideState] = useState(null);
+    const [rejectRideState, setRejectRideState] = useState(null);
     const [endRideState, setEndRideState] = useState(null);
 
     //handleAcceptRide() will be called after accepting the ride
@@ -33,6 +34,14 @@ function RequestedRide({user}){
         //call accept passenger ride function here
         console.log("acceptPassengerRequest() called");
     }
+    const handleRejectRide = (e, id, address) => {
+        setRejectRideState(id);
+        rejectPassengerRequest(id,address)
+
+        //call accept passenger ride function here
+        console.log("rejectPassengerRequest() called");
+    }
+
     const handleEndRide = (e, id) => {
         setEndRideState(id);
         endRide(id)
@@ -72,6 +81,7 @@ function RequestedRide({user}){
                             <td>{item[9]}</td>
                             <td>{item[10]}</td> 
                             { acceptRideState!=item[11] && item[7]==="passengerRequested" ? <td><Button className="joinButton" onClick={e=> handleAcceptRide(e, item[11], item[8][0])}>Accept</Button></td> : null}
+                            { rejectRideState!=item[11] && item[7]==="passengerRequested" ? <td><Button className="joinButton" onClick={e=> handleRejectRide(e, item[11], item[8][0])}>Reject</Button></td> : null}
                             {item[7]==="passengerConfirmed" || item[7]==="enroute" ? <td><span className="requested">Confirmed</span></td> : null}
                             {item[7]==="completed" ? <td><span className="accepted">Ride Ended</span></td> : null}
                             {item[7]==="enroute" && endRideState!=item[11] && item[8].length<1 ? <td><Button className="joinButton" onClick={e=> handleEndRide(e, item[11])}>End Ride</Button></td>: null}

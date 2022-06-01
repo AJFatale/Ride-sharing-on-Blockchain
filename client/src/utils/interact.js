@@ -6,7 +6,7 @@ import { ethers } from "ethers";
 import axios  from "axios";
 
 
-const contractAddress = "0x31f0e6e0826aB8627035CA698826B52523e91307";
+const contractAddress = "0x404D6cc76A411b4Abb58330A6537C3732e9B9fBc";  // Change this.
 
 function Interact(props) {
     const [currentAccount, setCurrentAccount] = useState(null);
@@ -223,6 +223,11 @@ function Interact(props) {
         const ride = await contractInstance.methods.acceptPassengerRequest(rideNumber,passengerAddress).send({from: currentAccount});
         console.log(ride)
     }
+
+    const rejectPassengerRequest = async (rideNumber, passengerAddress) => {
+        const ride = await contractInstance.methods.rejectPassengerRequest(rideNumber,passengerAddress).send({from: currentAccount});
+        console.log(ride)
+    }
     const getPassengers = async (rideNumber) => {
         const passengers = await contractInstance.methods.getPassengers().call();
         console.log(passengers)
@@ -243,7 +248,7 @@ function Interact(props) {
             joinRide:joinRide, startRide:startRide,requestedRides, acceptPassengerRequest:acceptPassengerRequest,
             endRide:endRide, cancelRide:cancelRide, getAvailableRideCount:getAvailableRideCount,availableRideCount
             ,getEnrouteRideCount:getEnrouteRideCount,getCompletedRideCount:getCompletedRideCount,enrouteRideCount,completedRideCount,
-            getUserCount:getUserCount ,userCount
+            getUserCount:getUserCount ,rejectPassengerRequest:rejectPassengerRequest,userCount
         
         }}>
 
